@@ -200,7 +200,7 @@ function ReservationSection() {
               </div>
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-xl">mail</span>
-                <span>reserve@oceantravel.com</span>
+                <span>reserve@travel.com</span>
               </div>
             </div>
           </div>

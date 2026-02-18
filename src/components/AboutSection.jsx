@@ -62,7 +62,7 @@ function AboutSection() {
           </div>
           <div className="w-full lg:w-1/2 space-y-8">
             <div>
-              <h3 className="text-primary font-bold text-sm tracking-wider uppercase mb-2">About Ocean Travel</h3>
+              <h3 className="text-primary font-bold text-sm tracking-wider uppercase mb-2">About 전미주투어</h3>
               <h2 className="text-4xl md:text-5xl font-black text-text-main leading-tight tracking-tight">
                 여행, 그 이상의<br/>가치를 선물합니다
               </h2>

@@ -6,7 +6,7 @@ function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-white">
               <span className="material-symbols-outlined text-3xl">sailing</span>
-              <span className="text-2xl font-bold tracking-tight">Ocean Travel</span>
+              <span className="text-2xl font-bold tracking-tight">전미주투어</span>
             </div>
             <p className="text-sm leading-relaxed text-white/60">
               당신의 꿈을 현실로 만드는 여행 파트너.<br/>
@@ -45,7 +45,7 @@ function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary mt-0.5">mail</span>
-                <span>support@oceantravel.com</span>
+                <span>support@travel.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary mt-0.5">location_on</span>
@@ -65,7 +65,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
-          <p>© 2024 Ocean Travel Inc. All rights reserved.</p>
+          <p>© 전미주투어 Inc. All rights reserved.</p>
           <p className="mt-2 md:mt-0">Design by UI Designer</p>
         </div>
       </div>

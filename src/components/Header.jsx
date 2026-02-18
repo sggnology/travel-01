@@ -9,7 +9,7 @@ function Header() {
         <div className="size-8 rounded-full bg-white/20 flex items-center justify-center">
           <span className="material-symbols-outlined text-white text-xl">sailing</span>
         </div>
-        <h2 className="text-xl font-bold leading-tight tracking-tight text-white">Ocean Travel</h2>
+        <h2 className="text-xl font-bold leading-tight tracking-tight text-white">전미주투어</h2>
       </div>
       <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
         <nav className="flex items-center gap-8">

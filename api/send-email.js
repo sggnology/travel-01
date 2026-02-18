@@ -48,7 +48,7 @@ export default async function handler(req, res) {
       <body>
         <div class="container">
           <div class="header">
-            <h1>⛵ Ocean Travel 예약 신청</h1>
+            <h1>⛵ 전미주투어 예약 신청</h1>
           </div>
           <div class="content">
             <div class="section">
@@ -71,7 +71,7 @@ export default async function handler(req, res) {
             ` : ''}
           </div>
           <div class="footer">
-            © 2024 Ocean Travel Inc. All rights reserved.
+            © 전미주투어 Inc. All rights reserved.
           </div>
         </div>
       </body>
@@ -80,7 +80,7 @@ export default async function handler(req, res) {
 
     // 텍스트 버전
     const textContent = `
-Ocean Travel 예약 신청서
+전미주투어 예약 신청서
 ========================
 
 ■ 고객 정보
@@ -96,14 +96,14 @@ ${coupon ? `- 쿠폰번호: ${coupon}` : ''}
 ${requests ? `■ 요청 사항\n${requests}` : ''}
 
 ========================
-본 메일은 Ocean Travel 웹사이트에서 발송되었습니다.
+본 메일은 전미주투어 웹사이트에서 발송되었습니다.
     `;
 
     const { data, error } = await resend.emails.send({
-      from: 'Ocean Travel <onboarding@resend.dev>', // 도메인 인증 후 변경 가능
-      to: [process.env.RESERVATION_EMAIL || 'reserve@oceantravel.com'],
+      from: '전미주투어 <onboarding@resend.dev>', // 도메인 인증 후 변경 가능
+      to: [process.env.RESERVATION_EMAIL || 'reserve@travel.com'],
       replyTo: email,
-      subject: `[Ocean Travel 예약문의] ${packageName} - ${name}`,
+      subject: `[전미주투어 예약문의] ${packageName} - ${name}`,
       html: htmlContent,
       text: textContent,
     });
