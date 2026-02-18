@@ -5,24 +5,13 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-white/10 pb-12">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-white">
-              <span className="material-symbols-outlined text-3xl">sailing</span>
+              <img src="/logo.svg" alt="전미주투어 로고" className="w-8 h-8 rounded-full" />
               <span className="text-2xl font-bold tracking-tight">전미주투어</span>
             </div>
             <p className="text-sm leading-relaxed text-white/60">
               당신의 꿈을 현실로 만드는 여행 파트너.<br/>
               언제나 고객님의 행복을 최우선으로 생각합니다.
             </p>
-            <div className="flex gap-4 pt-2">
-              <a className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
-                <span className="text-xs font-bold">IN</span>
-              </a>
-              <a className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
-                <span className="text-xs font-bold">FB</span>
-              </a>
-              <a className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
-                <span className="text-xs font-bold">YT</span>
-              </a>
-            </div>
           </div>
           <div>
             <h4 className="text-white font-bold mb-6 text-lg">바로가기</h4>
@@ -66,7 +55,6 @@ function Footer() {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
           <p>© 전미주투어 Inc. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Design by UI Designer</p>
         </div>
       </div>
     </footer>

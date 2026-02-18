@@ -7,7 +7,7 @@ function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-white/10 bg-primary/90 backdrop-blur-md px-6 py-4 shadow-sm transition-all duration-300 md:px-10 lg:px-40">
       <div className="flex items-center gap-4 text-white">
         <div className="size-8 rounded-full bg-white/20 flex items-center justify-center">
-          <span className="material-symbols-outlined text-white text-xl">sailing</span>
+          <img src="/logo.svg" alt="전미주투어 로고" className="w-8 h-8 rounded-full" />
         </div>
         <h2 className="text-xl font-bold leading-tight tracking-tight text-white">전미주투어</h2>
       </div>
