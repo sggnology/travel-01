@@ -54,7 +54,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
-          <p>© 2025 Monkey Trip. All rights reserved.</p>
+          <p>© Monkey Trip. All rights reserved.</p>
         </div>
       </div>
     </footer>
