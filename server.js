@@ -1,21 +1,26 @@
+import express from 'express';
+import cors from 'cors';
 import { Resend } from 'resend';
+import { config } from 'dotenv';
 
+// .env 파일 로드
+config();
+
+const app = express();
+const PORT = 3001;
+
+// 미들웨어
+app.use(cors());
+app.use(express.json());
+
+// Resend 인스턴스
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
-  // CORS 설정
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+// 개발 환경 여부
+const isDev = process.env.NODE_ENV !== 'production';
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
+// 이메일 전송 API
+app.post('/api/send-email', async (req, res) => {
   try {
     const { name, phone, email, packageName, partner, coupon, requests } = req.body;
 
@@ -23,6 +28,11 @@ export default async function handler(req, res) {
     if (!name || !phone || !email || !packageName) {
       return res.status(400).json({ error: '필수 정보가 누락되었습니다.' });
     }
+
+    // 개발 환경에서는 테스트 이메일로, 프로덕션에서는 실제 수신자로
+    const toEmail = isDev 
+      ? (process.env.TEST_EMAIL || 'sggnology@gmail.com')
+      : (process.env.RESERVATION_EMAIL || 'allusa@naver.com');
 
     // 이메일 본문 HTML 생성
     const htmlContent = `
@@ -43,10 +53,12 @@ export default async function handler(req, res) {
           .value { color: #333; font-weight: 500; }
           .requests-box { background: #f9f9f9; padding: 16px; border-radius: 8px; white-space: pre-wrap; }
           .footer { background: #0f1d23; color: white; padding: 20px; text-align: center; font-size: 12px; }
+          .dev-notice { background: #fff3cd; color: #856404; padding: 12px; text-align: center; font-size: 12px; }
         </style>
       </head>
       <body>
         <div class="container">
+          ${isDev ? '<div class="dev-notice">⚠️ 개발 환경 테스트 메일입니다</div>' : ''}
           <div class="header">
             <h1>⛵ Monkey Trip 예약 신청</h1>
           </div>
@@ -82,7 +94,7 @@ export default async function handler(req, res) {
     const textContent = `
 Monkey Trip 예약 신청서
 ========================
-
+${isDev ? '[개발 환경 테스트 메일]\n' : ''}
 ■ 고객 정보
 - 성함: ${name}
 - 연락처: ${phone}
@@ -99,20 +111,23 @@ ${requests ? `■ 요청 사항\n${requests}` : ''}
 본 메일은 Monkey Trip 웹사이트에서 발송되었습니다.
     `;
 
+    console.log(`📧 이메일 전송 시도: ${toEmail}`);
+
     const { data, error } = await resend.emails.send({
-      from: 'Monkey Trip <noreply@monkey.co.kr>', // 도메인 인증 후 변경 가능
-      to: [process.env.RESERVATION_EMAIL || 'allusa@naver.com'],
+      from: process.env.FROM_EMAIL || 'Monkey Trip <onboarding@resend.dev>',
+      to: [toEmail],
       replyTo: email,
-      subject: `[Monkey Trip 예약문의] ${packageName} - ${name}`,
+      subject: `${isDev ? '[테스트] ' : ''}[Monkey Trip 예약문의] ${packageName} - ${name}`,
       html: htmlContent,
       text: textContent,
     });
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('❌ Resend error:', error);
       return res.status(500).json({ error: '이메일 전송에 실패했습니다.', details: error.message });
     }
 
+    console.log(`✅ 이메일 전송 성공: ${data.id}`);
     return res.status(200).json({ 
       success: true, 
       message: '예약 신청이 완료되었습니다.',
@@ -120,7 +135,24 @@ ${requests ? `■ 요청 사항\n${requests}` : ''}
     });
 
   } catch (error) {
-    console.error('Server error:', error);
+    console.error('❌ Server error:', error);
     return res.status(500).json({ error: '서버 오류가 발생했습니다.', details: error.message });
   }
-}
+});
+
+// 헬스 체크
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', mode: isDev ? 'development' : 'production' });
+});
+
+// 서버 시작
+app.listen(PORT, () => {
+  console.log('');
+  console.log('🚀 Monkey Trip 로컬 API 서버');
+  console.log('================================');
+  console.log(`📍 서버 주소: http://localhost:${PORT}`);
+  console.log(`🔧 모드: ${isDev ? '개발 (테스트 이메일로 발송)' : '프로덕션'}`);
+  console.log(`📧 수신 이메일: ${isDev ? (process.env.TEST_EMAIL || 'sggnology@gmail.com') : (process.env.RESERVATION_EMAIL || 'allusa@naver.com')}`);
+  console.log('================================');
+  console.log('');
+});
