@@ -62,13 +62,13 @@ function AboutSection() {
           </div>
           <div className="w-full lg:w-1/2 space-y-8">
             <div>
-              <h3 className="text-primary font-bold text-sm tracking-wider uppercase mb-2">About 전미주투어</h3>
+              <h3 className="text-primary font-bold text-sm tracking-wider uppercase mb-2">About Monkey Trip</h3>
               <h2 className="text-4xl md:text-5xl font-black text-text-main leading-tight tracking-tight">
                 여행, 그 이상의<br/>가치를 선물합니다
               </h2>
             </div>
             <p className="text-lg text-gray-600 leading-relaxed">
-              전미주투어는 단순한 여행이 아닌, 삶의 쉼표가 되는 특별한 경험을 제공합니다. 
+              Monkey Trip은 단순한 여행이 아닌, 삶의 쉼표가 되는 특별한 경험을 제공합니다. 
               바쁜 일상 속에서 잠시 벗어나, 오로지 나에게 집중할 수 있는 시간을 만들어드립니다.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">

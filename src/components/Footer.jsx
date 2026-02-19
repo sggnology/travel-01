@@ -5,8 +5,8 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-white/10 pb-12">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-white">
-              <img src="/logo.svg" alt="전미주투어 로고" className="w-8 h-8 rounded-full" />
-              <span className="text-2xl font-bold tracking-tight">전미주투어</span>
+              <img src="/logo.svg" alt="Monkey Trip 로고" className="w-8 h-8 rounded-full" />
+              <span className="text-2xl font-bold tracking-tight">Monkey Trip</span>
             </div>
             <p className="text-sm leading-relaxed text-white/60">
               당신의 꿈을 현실로 만드는 여행 파트너.<br/>
@@ -28,17 +28,17 @@ function Footer() {
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary mt-0.5">phone_in_talk</span>
                 <div>
-                  <span className="block text-white font-bold">1588-0000</span>
+                  <span className="block text-white font-bold">02-736-2126</span>
                   <span className="text-white/50 text-xs">평일 09:00 - 18:00</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary mt-0.5">mail</span>
-                <span>support@travel.com</span>
+                <span>allusa@naver.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary mt-0.5">location_on</span>
-                <span>서울특별시 강남구 테헤란로 123<br/>오션빌딩 5층</span>
+                <span>서울특별시 중구 을지로3길 34<br/>산다빌딩 411호</span>
               </li>
             </ul>
           </div>
@@ -54,7 +54,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
-          <p>© 전미주투어 Inc. All rights reserved.</p>
+          <p>© 2025 Monkey Trip. All rights reserved.</p>
         </div>
       </div>
     </footer>

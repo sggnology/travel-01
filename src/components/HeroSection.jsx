@@ -19,7 +19,7 @@ function HeroSection() {
           꿈꾸던 여행을<br/>현실로 만드세요
         </h1>
         <p className="max-w-2xl text-lg text-white/90 md:text-xl font-normal leading-relaxed drop-shadow-md">
-          전미주투어와 함께 일상에서 벗어나 특별한 쉼표를 찍어보세요. <br className="hidden md:block"/>
+          Monkey Trip과 함께 일상에서 벗어나 특별한 쉼표를 찍어보세요. <br className="hidden md:block"/>
           당신만을 위한 완벽한 힐링 여행이 기다리고 있습니다.
         </p>
         <div className="mt-4 flex flex-col sm:flex-row gap-4">

@@ -35,7 +35,7 @@ function PackagesSection() {
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">BEST PACKAGES</span>
           <h2 className="text-4xl font-black text-text-main mb-6 tracking-tight">인기 여행 상품</h2>
-          <p className="text-gray-500 text-lg">전미주투어 고객님들이 가장 사랑하는 베스트 여행지를 만나보세요.</p>
+          <p className="text-gray-500 text-lg">Monkey Trip 고객님들이 가장 사랑하는 베스트 여행지를 만나보세요.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg) => (
