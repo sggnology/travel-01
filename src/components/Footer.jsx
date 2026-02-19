@@ -1,4 +1,11 @@
 function Footer() {
+  // 주소 정보
+  const address = "서울특별시 중구 을지로3길 34 산다빌딩 411호";
+  const encodedAddress = encodeURIComponent(address);
+  
+  // 네이버 지도 URL
+  const mapUrl = `https://map.naver.com/v5/search/${encodedAddress}`;
+
   return (
     <footer className="bg-background-dark text-white/80 py-16 px-6 md:px-20 lg:px-40" id="contact">
       <div className="mx-auto max-w-7xl">
@@ -38,20 +45,33 @@ function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary mt-0.5">location_on</span>
-                <span>서울특별시 중구 을지로3길 34<br/>산다빌딩 411호</span>
+                <a 
+                  href={mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  서울특별시 중구 을지로3길 34<br/>산다빌딩 411호
+                </a>
               </li>
             </ul>
           </div>
-          <div className="rounded-xl overflow-hidden h-40 bg-gray-700 relative group cursor-pointer">
+          <a 
+            href={mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl overflow-hidden h-40 bg-gray-700 relative group cursor-pointer block"
+            title="지도에서 위치 보기"
+          >
             <img 
               alt="Map location" 
               className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtVVxtTZzPfidIa5WEZI8t8Yb0VnNnVsPKYiQ4gG_7iS9t8T9TlBF7stEFBGaVA5UvZBkSnaLVKbk1zHTNmxj4f2xCXXEV8XTys-HUj0BfmnoXUqU3jrXFd9yLjY3JlLof9agt6xY3sYbg7L4BULaOYQaRscOevxVEKvcvezQY7f_38a2WOeqjYm60JaBNzPyUhY_HcSSzDtmUxFkMGrjJ9YjsRzW8p9LyaVf3Wkba101wW_ga0L1gSFQUn7xWlYZ6E4quURwfYHw"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
               <span className="material-symbols-outlined text-white text-3xl drop-shadow-md">map</span>
             </div>
-          </div>
+          </a>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
           <p>© Monkey Trip. All rights reserved.</p>

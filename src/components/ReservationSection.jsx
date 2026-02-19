@@ -196,11 +196,11 @@ function ReservationSection() {
             <div className="space-y-4 text-sm text-white/90">
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-xl">call</span>
-                <span>1588-0000</span>
+                <span>02-736-2126</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-xl">mail</span>
-                <span>reserve@travel.com</span>
+                <span>allusa@naver.com</span>
               </div>
             </div>
           </div>
